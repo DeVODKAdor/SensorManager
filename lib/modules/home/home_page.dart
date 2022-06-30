@@ -4,9 +4,16 @@ import 'package:payflow2/shared/themes/app_text_styles.dart';
 
 import '../../shared/themes/app_colors.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   final db = FirebaseFirestore.instance;
+
   bool valor = false;
 
   @override
@@ -39,19 +46,52 @@ class HomePage extends StatelessWidget {
             Switch(
                 value: valor,
                 onChanged: (bool valor) {
-                  db.collection("sensores").doc("Led").set({"ativado": valor});
+                  setState(() {
+                    db
+                        .collection("sensores")
+                        .doc("Led")
+                        .set({"ativado": valor});
+                  });
                 }),
-            Switch(value: false, onChanged: (bool valor) {
-                  db.collection("sensores").doc("Luminosidade").set({"ativado": valor});
+            Switch(
+                value: valor,
+                onChanged: (bool valor) {
+                  setState(() {
+                    db
+                        .collection("sensores")
+                        .doc("Luminosidade")
+                        .set({"ativado": valor});
+                  });
                 }),
-            Switch(value: false, onChanged: (bool valor) {
-                  db.collection("sensores").doc("Proximidade").set({"ativado": valor});
+            Switch(
+                value: valor,
+                onChanged: (bool valor) {
+                  setState(() {
+                    db
+                        .collection("sensores")
+                        .doc("Proximidade")
+                        .set({"ativado": valor});
+                  });
                 }),
-            Switch(value: false, onChanged: (bool valor) {
-                  db.collection("sensores").doc("Som").set({"ativado": valor});
+            Switch(
+                value: valor,
+                onChanged: (bool valor) {
+                  setState(() {
+                    db
+                        .collection("sensores")
+                        .doc("Som")
+                        .set({"ativado": valor});
+                  });
                 }),
-            Switch(value: false, onChanged: (bool valor) {
-                  db.collection("sensores").doc("Vibração").set({"ativado": valor});
+            Switch(
+                value: valor,
+                onChanged: (bool valor) {
+                  setState(() {
+                    db
+                        .collection("sensores")
+                        .doc("Vibração")
+                        .set({"ativado": valor});
+                  });
                 }),
           ],
         ),

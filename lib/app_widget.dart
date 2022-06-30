@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:payflow2/modules/home/home_page.dart';
-import 'package:payflow2/modules/splashes/splash_page.dart';
+import 'package:payflow2/modules/login/cadastro.dart';
+import 'package:payflow2/modules/login/password_redefinition.dart';
 import 'modules/login/login_page.dart';
 import 'shared/themes/app_colors.dart';
 
@@ -13,11 +14,12 @@ class AppWidget extends StatelessWidget {
         title: 'Pay Flow',
         theme: ThemeData(primaryColor: AppColors.primary),
         home: const LoginPage(),
-        initialRoute: '/splash',
+        initialRoute: '/login',
         routes: {
-          '/splash': (context) => const SplashPage(),
           '/home': (context) => HomePage(),
-          '/login': (context) => const LoginPage()
+          '/login': (context) => const LoginPage(),
+          '/password': (context) => PasswordRedefinition(),
+          '/cadastro':(context) => Cadastro()
         });
   }
 }
